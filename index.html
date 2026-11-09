@@ -517,7 +517,7 @@ figcaption span{color:var(--color-ink-2)}
 
   <section class="record" id="record" aria-labelledby="rec-h">
     <div class="container">
-      <h2 id="rec-h" class="rv">2020년부터 지금까지</h2>
+      <h2 id="rec-h" class="rv">2022년부터 지금까지</h2>
       <ol class="rec">
         <li><span class="when num">2025.07–2026.09</span><span class="what">메타버즈 스튜디오팀 PD</span><span class="did">11명 제작팀 운영, 주간 약 500건 제작 관리</span></li>
         <li><span class="when num">2023.04부터</span><span class="what">AI 교육과 콘텐츠 제작</span><span class="did">누적 수강생 600명 이상 (2026.07 기준), 전자책과 온라인 강의 판매</span></li>
@@ -552,9 +552,10 @@ figcaption span{color:var(--color-ink-2)}
       <div class="out">
         <h3>직접 출시한 곳</h3>
         <ul>
-          <li><a href="https://apps.apple.com/app/id6818438871" target="_blank" rel="noopener">키캡 점프, App Store</a></li>
+          <li><a href="https://apps.apple.com/app/id6818438871" target="_blank" rel="noopener">키캡 점프 (App Store, 원스토어, 토스)</a></li>
           <li><a href="https://todayfreeai.com" target="_blank" rel="noopener">todayfreeai.com</a></li>
           <li><a href="https://www.ailabsil.com" target="_blank" rel="noopener">ailabsil.com</a></li>
+          <li><a href="#projects">토스 미니앱 6개</a></li>
         </ul>
       </div>
       <p>© 2026 신유빈</p>
@@ -578,16 +579,14 @@ figcaption span{color:var(--color-ink-2)}
   var motion = !matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  // intro: two greetings, then the curtain lifts (once per visit)
+  // intro: one short greeting, then the curtain lifts (once per visit)
   var intro=document.querySelector('.intro');
   var seen=false; try{ seen=sessionStorage.getItem('intro')==='1'; sessionStorage.setItem('intro','1'); }catch(e){}
   if(intro){
     if(!motion||seen){ intro.remove(); }
     else{
-      var p=intro.querySelector('p'), words=['안녕하세요','신유빈입니다'];
-      setTimeout(function(){ p.style.opacity=0; setTimeout(function(){ p.textContent=words[1]; p.style.opacity=1; },220); },700);
-      setTimeout(function(){ intro.classList.add('out'); },1700);
-      setTimeout(function(){ intro.remove(); },2700);
+      setTimeout(function(){ intro.classList.add('out'); },550);
+      setTimeout(function(){ intro.remove(); },1400);
       intro.addEventListener('click',function(){ intro.classList.add('out'); });
     }
   }
