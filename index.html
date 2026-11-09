@@ -268,12 +268,25 @@ figcaption span{color:var(--color-ink-2)}
 .after{margin-top:var(--space-lg);display:grid;gap:var(--space-2xs);font-size:var(--text-sm);color:var(--color-ink-2)}
 @media (max-width:60rem){.rec li{grid-template-columns:minmax(0,1fr)}}
 
+/* 7b · services */
+.services{padding-block:var(--space-2xl) var(--space-4xl)}
+.sv-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:var(--space-md) var(--gap);margin-bottom:var(--space-2xl)}
+.sv-head h2{font-size:var(--text-section)}
+.sv-head p{max-width:34ch;color:var(--color-ink-2);font-size:var(--text-lg)}
+.sv-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--gap);counter-reset:sv}
+.sv-list li{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:var(--space-2xs) var(--space-md);padding-block:var(--space-xl);border-top:1px solid var(--color-ink);counter-increment:sv}
+.sv-list li::before{content:counter(sv, decimal-leading-zero);grid-row:1 / 3;font-size:var(--text-sm);font-weight:500;color:var(--color-muted);padding-top:.55em}
+.sv-list h3{font-size:var(--text-title)}
+.sv-list p{color:var(--color-ink-2);max-width:40ch}
+@media (max-width:50rem){.sv-list{grid-template-columns:minmax(0,1fr)}}
+
 /* 8 · contact on ink, with the paper curving away above it */
 .contact{position:relative;background:var(--color-ink);color:var(--color-on-ink);padding-block:clamp(140px, 18vw, 240px) var(--space-xl);overflow:hidden}
 .curve{position:absolute;left:-10%;top:-1px;width:120%;height:clamp(60px, 9vw, 150px);background:var(--color-paper);border-radius:0 0 50% 50%;transform-origin:50% 0}
 .c-head{display:flex;align-items:center;gap:var(--space-lg)}
 .c-head img{width:clamp(56px, 7vw, 96px);height:clamp(56px, 7vw, 96px);border-radius:50%;object-fit:cover;object-position:50% 8%;flex:none}
 .c-head h2{font-size:clamp(2.75rem, 7vw, 7rem);line-height:1.05;letter-spacing:-0.035em}
+@media (max-width:40rem){.c-head{flex-direction:column;align-items:flex-start}.c-head h2{font-size:clamp(2rem, 10vw, 2.75rem)}}
 .c-line{position:relative;margin-block:var(--space-3xl) var(--space-2xl);border-top:1px solid var(--color-rule-ink)}
 .c-line .circle{position:absolute;right:8%;top:0;translate:0 -50%;--d:clamp(8.5rem, 13vw, 12.5rem)}
 .c-pills{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}
@@ -343,6 +356,7 @@ figcaption span{color:var(--color-ink-2)}
     <li><a href="#work">만든 것</a></li>
     <li><a href="#company">메타버즈 도구</a></li>
     <li><a href="#projects">개인 프로젝트</a></li>
+    <li><a href="#services">맡는 일</a></li>
     <li><a href="#record">이력</a></li>
     <li><a href="#contact">연락</a></li>
   </ul>
@@ -532,6 +546,20 @@ figcaption span{color:var(--color-ink-2)}
       </div>
     </div>
   </section>
+  <section class="services" id="services" aria-labelledby="sv-h">
+    <div class="container">
+      <div class="sv-head">
+        <h2 id="sv-h" class="rv">이런 일을 맡습니다</h2>
+        <p class="rv">프로젝트 단위 또는 주 2~3일로 일합니다. 원격이 기본이고, 서울에서는 만나서 진행할 수 있습니다.</p>
+      </div>
+      <ol class="sv-list">
+        <li class="rv"><h3>업무 자동화 도구 제작</h3><p>반복되는 작업을 찾아 팀이 바로 쓰는 도구로 만듭니다. 메타버즈에서 사내 도구 8개를 만들었고 16명이 썼습니다.</p></li>
+        <li class="rv"><h3>AI 콘텐츠 제작 파이프라인</h3><p>대본, 소재, 음성, 편집, 출력을 한 흐름으로 묶습니다. 쇼츠 1인 1일 제작량을 20편에서 180편으로 늘렸습니다.</p></li>
+        <li class="rv"><h3>아이디어를 서비스로 출시</h3><p>기획부터 앱과 웹 출시까지 끝냅니다. 토스 미니앱 6개, App Store와 원스토어에 키캡 점프를 냈습니다.</p></li>
+        <li class="rv"><h3>기업 AI 교육</h3><p>실무자가 다음 날 바로 쓰는 생성형 AI 교육을 합니다. 세종사이버대학교, 해커스캠퍼스, CLASS101에 콘텐츠를 제공했습니다.</p></li>
+      </ol>
+    </div>
+  </section>
 </main>
 
 <footer class="contact" id="contact">
@@ -539,9 +567,9 @@ figcaption span{color:var(--color-ink-2)}
   <div class="container">
     <div class="c-head">
       <img src="assets/portrait.webp" width="1122" height="1402" alt="" loading="lazy">
-      <h2>함께 일할 팀을<br>찾고 있습니다</h2>
+      <h2>프로젝트와 강의<br>문의를 받습니다</h2>
     </div>
-    <div class="c-line"><a class="circle key" href="mailto:eps15920@gmail.com" data-magnet><span>메일 보내기</span></a></div>
+    <div class="c-line"><a class="circle key" href="mailto:eps15920@gmail.com?subject=%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%AC%B8%EC%9D%98" data-magnet><span>프로젝트 문의</span></a></div>
     <div class="c-pills">
       <a class="pill" href="mailto:eps15920@gmail.com" id="email">eps15920@gmail.com</a>
     </div>
