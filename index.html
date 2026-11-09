@@ -147,7 +147,9 @@ html.lenis,html.lenis body{height:auto}
 
 /* 1b · highlights, right under the hero */
 .hl{padding-block:var(--space-2xl) 0}
-.hl-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-xl) var(--gap)}
+.hl-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--space-xl) var(--gap)}
+.hl-list li{grid-column:span 2}
+.hl-list li:nth-child(n+4){grid-column:span 3}
 .hl-list li{display:grid;gap:var(--space-2xs);align-content:start;padding-top:var(--space-lg);border-top:1px solid var(--color-ink)}
 .hl-list b{font-size:clamp(2.5rem, 3.8vw, 4rem);font-weight:400;line-height:1.05;letter-spacing:-0.035em;margin-bottom:var(--space-xs);white-space:nowrap}
 .hl-list span{font-weight:500;font-size:var(--text-lg);line-height:1.4;letter-spacing:-0.01em}
@@ -156,8 +158,8 @@ html.lenis,html.lenis body{height:auto}
 .hl-edu h3{font-size:var(--text-md);font-weight:500;letter-spacing:0;color:var(--color-muted)}
 .hl-edu ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--space-sm) var(--space-xl)}
 .hl-edu li{font-size:clamp(1.25rem, 1.6vw, 1.625rem);font-weight:500;letter-spacing:-0.02em}
-@media (max-width:70rem){.hl-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:40rem){.hl-list{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}.hl-list b{font-size:clamp(2.5rem, 12vw, 3.25rem)}}
+@media (max-width:70rem){.hl-list{grid-template-columns:repeat(2,minmax(0,1fr))}.hl-list li,.hl-list li:nth-child(n+4){grid-column:auto}.hl-list li:last-child{grid-column:1 / -1}}
+@media (max-width:40rem){.hl-list{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}.hl-list li:last-child{grid-column:auto}.hl-list b{font-size:clamp(2.5rem, 12vw, 3.25rem)}}
 
 /* 2 · statement */
 .about{padding-block:var(--space-4xl) var(--space-3xl)}
@@ -244,6 +246,14 @@ figcaption span{color:var(--color-ink-2)}
 .facts div{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:var(--space-md);padding-block:var(--space-sm);border-top:1px solid var(--color-rule)}
 .facts dt{font-size:var(--text-sm);font-weight:500;color:var(--color-muted);padding-top:2px}
 .facts dd{margin:0}
+.toss{padding-top:var(--space-2xl);border-top:1px solid var(--color-rule)}
+.toss h3{font-size:var(--text-title);margin-bottom:var(--space-xl)}
+.toss ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--gap)}
+.toss li{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-md);padding-block:var(--space-md);border-top:1px solid var(--color-rule)}
+.toss b{font-size:var(--text-lg);font-weight:500}
+.toss li span{font-size:var(--text-sm);color:var(--color-muted)}
+@media (max-width:60rem){.toss ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:40rem){.toss ol{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:60rem){.release{grid-template-columns:minmax(0,1fr);gap:var(--space-xl)}}
 
 /* 7 · record */
@@ -357,6 +367,7 @@ figcaption span{color:var(--color-ink-2)}
         <li class="rv"><b class="num">1억 원</b><span>전자책 누적 매출</span><small>와디즈 펀딩 4,400만 원 포함</small></li>
         <li class="rv"><b>1등</b><span>이탈리아 문화체육협회(AiCS) 시각예술 공모전</span><small>디지털아트·뉴미디어 부문, 2026.11 로마</small></li>
         <li class="rv"><b class="num">약 2.5만 명</b><span>유튜브 '뒤처지면 죽는다' 구독자</span><small>2023년 1년간 운영한 AI 실무 채널</small></li>
+        <li class="rv"><b class="num">6개</b><span>토스 앱인토스 미니앱 출시</span><small>2026.09–10 한 달 사이, 키캡 점프 포함</small></li>
       </ul>
       <div class="hl-edu rv">
         <h3>교육 콘텐츠를 제공한 곳</h3>
@@ -389,7 +400,7 @@ figcaption span{color:var(--color-ink-2)}
         <li><a class="row" href="#company" data-i="0"><div class="thumb tile t-mid"><img src="assets/shortform-tool.webp" width="1060" height="720" alt="" loading="lazy"></div><h3>대량 숏폼 제작 도구</h3><div class="meta"><span class="where">메타버즈</span><span class="what">소재부터 음성, 효과, 출력까지 한 도구로</span></div></a></li>
         <li><a class="row" href="#premiere" data-i="1"><div class="thumb tile t-mid"><img src="assets/premiere-panel.webp" width="747" height="937" alt="" loading="lazy"></div><h3>Premiere 소재 검색 패널</h3><div class="meta"><span class="where">메타버즈</span><span class="what">팀원 10명 배포, 10명 모두 긍정 피드백</span></div></a></li>
         <li><a class="row" href="#naming" data-i="2"><div class="thumb tile t-ink"><img src="assets/ocr-naming.webp" width="1480" height="655" alt="" loading="lazy"></div><h3>제목 인식과 파일명 표준화</h3><div class="meta"><span class="where">메타버즈</span><span class="what">실행 환경 5.82GB에서 454MB로</span></div></a></li>
-        <li><a class="row" href="#keycap" data-i="3"><div class="thumb tile t-grey"><img src="assets/keycap-hero.webp" width="1076" height="828" alt="" loading="lazy"></div><h3>키캡 점프</h3><div class="meta"><span class="where">개인 프로젝트</span><span class="what">App Store와 토스 앱인토스 출시</span></div></a></li>
+        <li><a class="row" href="#keycap" data-i="3"><div class="thumb tile t-grey"><img src="assets/keycap-hero.webp" width="1076" height="828" alt="" loading="lazy"></div><h3>키캡 점프</h3><div class="meta"><span class="where">개인 프로젝트</span><span class="what">App Store, 원스토어, 토스 출시</span></div></a></li>
         <li><a class="row" href="#freeai" data-i="4"><div class="thumb tile t-paper"><img src="assets/todayfreeai.webp" width="1440" height="1286" alt="" loading="lazy"></div><h3>오늘도 무료인 AI</h3><div class="meta"><span class="where">개인 프로젝트</span><span class="what">AI 도구 499개, 근거 자동 재검증</span></div></a></li>
         <li><a class="row" href="#ailabsil" data-i="5"><div class="thumb tile t-mid"><img src="assets/ailabsil-home.webp" width="1280" height="984" alt="" loading="lazy"></div><h3>AI랩실</h3><div class="meta"><span class="where">개인 프로젝트</span><span class="what">전면 개편, 검색 구조 변경 0건</span></div></a></li>
       </ol>
@@ -443,8 +454,8 @@ figcaption span{color:var(--color-ink-2)}
   <section class="projects" id="projects" aria-labelledby="pr-h">
     <div class="container">
       <div class="pr-head">
-        <h2 id="pr-h" class="rv">회사 밖에서 출시한 세 가지</h2>
-        <p class="rv">2026년 개인 프로젝트. 만들기는 AI 에이전트가, 판단과 승인은 제가 합니다.</p>
+        <h2 id="pr-h" class="rv">회사 밖에서 출시한 것들</h2>
+        <p class="rv">2026년 개인 프로젝트. 만들기는 AI 에이전트가, 판단과 승인은 제가 합니다. 대표작 셋과 토스 미니앱 여섯 개입니다.</p>
       </div>
       <article class="release" id="keycap">
         <div class="pics rv">
@@ -454,7 +465,7 @@ figcaption span{color:var(--color-ink-2)}
         <div class="rv">
           <h3>키캡 점프</h3>
           <dl class="facts">
-            <div><dt>출시</dt><dd>App Store, 토스 앱인토스</dd></div>
+            <div><dt>출시</dt><dd>App Store, 원스토어, 토스 앱인토스</dd></div>
             <div><dt>만든 방식</dt><dd>Claude Code로 개발, Blender MCP로 3D 모델</dd></div>
             <div><dt>검증</dt><dd>자동 테스트 219개, 토스 승인까지 약 7시간</dd></div>
           </dl>
@@ -490,6 +501,17 @@ figcaption span{color:var(--color-ink-2)}
           <a class="pill" href="https://www.ailabsil.com" target="_blank" rel="noopener">ailabsil.com 열기<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></a>
         </div>
       </article>
+      <div class="toss rv">
+        <h3>토스 앱인토스에 출시한 미니앱 6개</h3>
+        <ol>
+          <li><b>살까말까</b><span class="num">2026.09.30</span></li>
+          <li><b>안시켰다</b><span class="num">2026.10.05</span></li>
+          <li><b>쫀득 토이</b><span class="num">2026.10.11</span></li>
+          <li><b>키캡 점프</b><span class="num">2026.10.13</span></li>
+          <li><b>통계 로또 생성기</b><span class="num">2026.10.24</span></li>
+          <li><b>근로장려금 계산기</b><span class="num">2026.10.24</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
